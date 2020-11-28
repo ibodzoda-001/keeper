@@ -1,0 +1,51 @@
+.table-style-free {
+  width: 113px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 200ms;
+  background-color:limegreen;
+  color:darkgreen;
+}
+
+.table-style-busy {
+  width: 113px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 200ms;
+  background-color:indianred;
+  color:darkred;
+}
+
+.meal-div-style {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+.table-style-reserved {
+  width: 113px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 200ms;
+  background-color: gold;
+  color:darkgoldenrod;
+}
+
+.table-style-free:hover , .table-style-busy:hover , .table-style-reserved:hover {
+  transform: scale(1.05);
+}
+
+.mealStyle {
+  cursor: pointer;
+}
+
+.mealStyle:hover {
+  background-color: lightgray;
+}

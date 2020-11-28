@@ -1,0 +1,4 @@
+<app-header *ngIf="password != undefined && password !== null"></app-header>
+<router-outlet *ngIf="password != undefined && password !== null"></router-outlet>
+
+<app-registration *ngIf="password == undefined || password == null"></app-registration>

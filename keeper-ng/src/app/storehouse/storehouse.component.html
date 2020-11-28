@@ -1,0 +1,42 @@
+<div class="container mt-3">
+  <h4>Склад</h4>
+  <div class="mt-3">
+    <label class="w-25">
+      Название
+      <input placeholder="Введите название" [(ngModel)]="name" type="text" class="form-control">
+    </label>
+    <label class="ml-2">
+      Количество
+      <input placeholder="Введите кол-во" [(ngModel)]="amount" type="number" style="width: 160px" class="form-control">
+    </label>
+    <button style="margin-top: 3px;"
+            [disabled]="name === undefined || name === '' || amount === undefined || amount === '' || amount <= 0"
+            (click)="addNewItemToStorehouse()"
+            class="btn btn-dark ml-2 mb-1">Добавить в список
+    </button>
+  </div>
+  <table class="table mt-4">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Название</th>
+      <th scope="col">Количество</th>
+      <th scope="col">Удаление</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="storehouse !== undefined">
+    <tr *ngFor="let item of storehouse; let i = index">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{ item.name }}</td>
+      <td>
+        <button class="mb-1 mr-1 btn btn-light" (click)="decreaseAmountOfItem(item.id)"> < </button>
+        <input (change)="inputItemAmountFunction(item.id)" style="width: 70px; outline: none; border: 2px solid whitesmoke" [(ngModel)]="item.amount" type="number" class="p-1 rounded">
+        <button class="mb-1 ml-1 btn btn-light" (click)="increaseAmountOfItem(item.id)"> > </button>
+      </td>
+      <td>
+        <button (click)="deleteItemFromList(item.id)" class="btn btn-danger">Удалить</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

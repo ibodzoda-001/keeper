@@ -1,0 +1,23 @@
+<div style="overflow: hidden; margin-top: 15vh" class="container bg-dark rounded py-2 pt-3 pb-4 col-5">
+  <h3 class="row justify-content-center" style="color: white">Регистрация</h3>
+  <div style="margin-left: 8vw">
+    <div>
+      <label class="mt-4" style="color: white">
+        Пароль
+        <input (change)="checkPassword()" [(ngModel)]="password" placeholder="Введите пароль" type="password" class="form-control" style="width: 23vw" maxlength="20">
+        <span *ngIf="passwordAlert" style="color: white" class="rounded mt-2">Пароль должен состоять из более <br> 5 символов !</span>
+        <input (change)="checkRepeatPassword()" [(ngModel)]="repeatPassword" placeholder="Повторите пароль" type="password" class="mt-3 form-control" style="width: 23vw" maxlength="20">
+        <span *ngIf="repeatPasswordAlert" style="color: white" class="rounded mt-2">Пароли не совпадают !</span>
+      </label>
+    </div>
+
+    <div>
+      <label class="mt-2" style="color: white">
+        Админ пароль
+        <input (change)="checkAdminPassword()" [(ngModel)]="adminPassword" placeholder="Администратор" type="password" class="form-control" style="width: 23vw" maxlength="20">
+        <span *ngIf="adminAlert" style="color: white" class="rounded mt-2">Неправильный админ пароль !</span>
+      </label>
+    </div>
+    <button (click)="registNewKeeper()" [disabled]="password !== repeatPassword || password == undefined || password.length < 6 || adminPassword != admin" class="mt-5 mr-5 btn btn-success float-right">Зарегистрироваться</button>
+  </div>
+</div>
